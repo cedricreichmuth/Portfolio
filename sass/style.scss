@@ -1,0 +1,153 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+// mixins
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+$tablet-width: 620px;
+$desktop-width: 1024px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+@mixin tabletanddesktop {
+	@media (min-width: #{$tablet-width}){
+		@content;
+	}
+}
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+
+body {
+	background-image: url("../.././images/bkgd-home.jpg");
+	background-size: cover;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+header {
+	background-color: rgba(163, 163, 163, 0.8);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	width: 100%;
+}
+header h2 {
+	font-family: "Walkway";
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+}
+header ul{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	font-family: "Open Sans";
+	font-weight: normal;
+	i{
+		padding-right: 10px;
+	}
+	li{
+		padding-top: 10px;
+	}
+}
+header a{
+	text-decoration: none;
+}
+.header-nav{
+	display: none;
+}
+.branding{
+	display: flex;
+	align-items: center;
+}
+.hamburger{
+	padding-right: 20px;
+	order: -1;
+	cursor: pointer;
+}
+#hero {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+}
+#hero h2 {
+	font-family: "Southern Aire Personal Use Only";
+	font-style: normal;
+	font-weight: normal;
+	font-size: 50px;
+}
+#hero h1 {
+	font-family: "Walkway";
+	font-style: normal;
+	font-weight: normal;
+}
+.profile {
+	background-image: url("../.././images/profile.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 200px;
+	width: 200px;
+	border-radius: 200px;
+	border: 4px solid #d3d3d3;
+}
