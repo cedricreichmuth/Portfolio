@@ -207,6 +207,10 @@ header a{
 }
 .skills{
 	width: 100%;
+	@include tabletanddesktop{
+		width: 50%;
+		box-sizing: border-box;
+	}
 	padding: 10px;
 	h3{
 		font-family: "Open Sans";
@@ -262,7 +266,7 @@ header a{
 	}
 	.html.inactive{
 		text-align: right;
-		background-color: red;
+		background-color: rgba(127, 171, 239, 0.5);
 		height: 16px;
 		width: 0;
 	}
@@ -283,7 +287,7 @@ header a{
 	}
 	.js.inactive{
 		text-align: right;
-		background-color: red;
+		background-color: rgba(127, 171, 239, 0.5);
 		height: 16px;
 		width: 0;
 	}
@@ -298,7 +302,7 @@ header a{
 	}
 	.react.inactive{
 		text-align: right;
-		background-color: red;
+		background-color: rgba(127, 171, 239, 0.5);
 		height: 16px;
 		width: 0;
 	}
@@ -309,7 +313,7 @@ header a{
 	}
 	.wp.inactive{
 		text-align: right;
-		background-color: red;
+		background-color: rgba(127, 171, 239, 0.5);
 		height: 16px;
 		width: 0;
 	}
@@ -324,6 +328,10 @@ header a{
 
 .languages{
 	width: 100%;
+	@include tabletanddesktop{
+		width: 50%;
+		box-sizing: border-box;
+	}
 	padding: 10px;
 	h3{
 		font-family: "Open Sans";
@@ -335,6 +343,7 @@ header a{
 	display: flex;
 	flex-wrap: wrap;
 	.grid-container{
+		padding-top: 5px;
 		width: 100%;
 		display: grid;
 		grid-template-columns: repeat(5, 20%);
@@ -378,7 +387,8 @@ header a{
 		to {width: 90%;}
 	}
 	.german.inactive{
-		background-color: red;
+		text-align: right;
+		background-color: rgba(127, 171, 239, 0.5);
 		height: 16px;
 		width: 0;
 	}
@@ -433,4 +443,42 @@ header a{
 	}
 	display: flex;
 	flex-wrap: wrap;
+	.interests{
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		div{
+			background-color: rgba(127, 171, 239, 0.5);
+			padding: 10px;
+			height: 50px;
+			border-radius: 50px;
+			&:hover{
+				box-shadow: 4px 4px 1px 0px black;
+			}
+		}
+		img{
+			height: 100%;
+			width: 50px;
+		}
+	}
+}
+
+/*Projects section*/
+
+#projects{
+	background-image: url('../../images/bkgd-projects-2.jpg');
+	background-size: cover;
+	background-position: bottom;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+#particles-js{
+	position: relative;
+	background-image: url('../../images/bkgd-projects-2.jpg');
+	background-size: cover;
+	background-position: bottom;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	height: 100vh;
 }

@@ -210,6 +210,11 @@ header a {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
+  @media (min-width: 620px) {
+    .skills {
+      width: 50%;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box; } }
   .skills h3 {
     font-family: "Open Sans";
     font-style: normal;
@@ -282,7 +287,7 @@ header a {
     width: 90%; } }
   .skills .html.inactive, .skills .html.active, .skills .css.active, .skills .css.inactive {
     text-align: right;
-    background-color: red;
+    background-color: rgba(127, 171, 239, 0.5);
     height: 16px;
     width: 0; }
   .skills .html.active, .skills .css.active {
@@ -304,7 +309,7 @@ header a {
     width: 65%; } }
   .skills .js.inactive, .skills .js.active {
     text-align: right;
-    background-color: red;
+    background-color: rgba(127, 171, 239, 0.5);
     height: 16px;
     width: 0; }
   .skills .js.active {
@@ -326,7 +331,7 @@ header a {
     width: 40%; } }
   .skills .react.inactive, .skills .react.active {
     text-align: right;
-    background-color: red;
+    background-color: rgba(127, 171, 239, 0.5);
     height: 16px;
     width: 0; }
   .skills .react.active {
@@ -336,7 +341,7 @@ header a {
             animation-fill-mode: forwards; }
   .skills .wp.inactive, .skills .wp.active {
     text-align: right;
-    background-color: red;
+    background-color: rgba(127, 171, 239, 0.5);
     height: 16px;
     width: 0; }
   .skills .wp.active {
@@ -354,6 +359,11 @@ header a {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
+  @media (min-width: 620px) {
+    .languages {
+      width: 50%;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box; } }
   .languages h3 {
     font-family: "Open Sans";
     font-style: normal;
@@ -361,6 +371,7 @@ header a {
     font-size: 25px;
     width: 100%; }
   .languages .grid-container {
+    padding-top: 5px;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(5, 20%);
@@ -425,7 +436,8 @@ header a {
   to {
     width: 90%; } }
   .languages .german.inactive, .languages .german.active, .languages .english.active, .languages .english.inactive, .languages .french.inactive, .languages .french.active, .languages .italian.inactive, .languages .italian.active {
-    background-color: red;
+    text-align: right;
+    background-color: rgba(127, 171, 239, 0.5);
     height: 16px;
     width: 0; }
   .languages .german.active, .languages .english.active {
@@ -483,3 +495,39 @@ header a {
     font-weight: normal;
     font-size: 25px;
     width: 100%; }
+  .personal-interest .interests {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around; }
+    .personal-interest .interests div {
+      background-color: rgba(127, 171, 239, 0.5);
+      padding: 10px;
+      height: 50px;
+      border-radius: 50px; }
+      .personal-interest .interests div:hover {
+        -webkit-box-shadow: 4px 4px 1px 0px black;
+                box-shadow: 4px 4px 1px 0px black; }
+    .personal-interest .interests img {
+      height: 100%;
+      width: 50px; }
+
+/*Projects section*/
+#projects {
+  background-image: url("../../images/bkgd-projects-2.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh; }
+
+#particles-js {
+  position: relative;
+  background-image: url("../../images/bkgd-projects-2.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh; }

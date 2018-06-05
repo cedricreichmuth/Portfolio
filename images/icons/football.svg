@@ -1,0 +1,16 @@
+<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="22" width="22" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <circle id="svg_1" r="2" cy="17.81242" cx="3.48619"/>
+  <circle id="svg_2" r="2" cy="2.124928" cx="11.423689"/>
+  <polygon id="svg_3" points="13.02368938922882,7.099925175309181 10.923689007759094,12.499924317002296 6.123688340187073,11.199924126267433 7.923689484596252,6.799925461411476 8.62368929386139,4.3999253660440445 12.623688817024231,5.499925270676613 "/>
+  <path stroke="#000000" id="svg_4" stroke-width="2" stroke-miterlimit="10" fill="none" d="m4.623689,9.599925l0.5,-1.1c0.5,-1.1 1.3,-2 2.3,-2.6l0,0c0.8,-0.5 1.7,-0.7 2.7,-0.5l1.7,0.4c0.7,0.1 1.3,0.4 2,0.7l4.6,2.5"/>
+  <line id="svg_5" y2="18.999925" y1="10.499925" x2="7.423689" x1="10.623689" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round" stroke="#000000" fill="none"/>
+  <line id="svg_6" y2="14.099925" y1="8.999925" x2="5.923689" x1="8.223689" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round" stroke="#000000" fill="none"/>
+ </g>
+</svg>
