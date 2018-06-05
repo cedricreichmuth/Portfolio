@@ -75,11 +75,7 @@ $desktop-width: 1024px;
 
 
 body {
-	background-image: url("../.././images/bkgd-home.jpg");
-	background-size: cover;
-	background-position: bottom;
-	background-repeat: no-repeat;
-	height: 100vh;
+
 }
 header {
 	background-color: rgba(163, 163, 163, 0.8);
@@ -93,10 +89,21 @@ header {
 header h2 {
 	font-family: "Walkway";
 	font-style: normal;
-	font-weight: normal;
+	font-weight: bold;
 	font-size: 30px;
+	padding: 10px 0;
+	@include tabletanddesktop{
+		font-size: 40px;
+	}
 }
-header ul{
+
+header a{
+	text-decoration: none;
+	color: #0b4a70;
+}
+.header-nav{
+	height: 0;
+	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -106,14 +113,12 @@ header ul{
 		padding-right: 10px;
 	}
 	li{
-		padding-top: 10px;
+		padding: 10px 20px 10px 0;
 	}
-}
-header a{
-	text-decoration: none;
-}
-.header-nav{
-	display: none;
+	@include tabletanddesktop{
+		height: auto;
+		flex-direction: row;
+	}
 }
 .branding{
 	display: flex;
@@ -123,6 +128,9 @@ header a{
 	padding-right: 20px;
 	order: -1;
 	cursor: pointer;
+	@include tabletanddesktop{
+		display: none;
+	}
 }
 #hero {
 	display: flex;
@@ -130,17 +138,30 @@ header a{
 	justify-content: center;
 	flex-direction: column;
 	height: 100%;
+	background-image: url("../.././images/bkgd-home.jpg");
+	background-size: cover;
+	background-position: bottom;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	height: 100vh;
 }
-#hero h2 {
+#hero h1 {
 	font-family: "Southern Aire Personal Use Only";
 	font-style: normal;
 	font-weight: normal;
 	font-size: 50px;
+	@include tabletanddesktop{
+		font-size: 80px;
+	}
 }
-#hero h1 {
+#hero h2 {
 	font-family: "Walkway";
 	font-style: normal;
 	font-weight: normal;
+	font-size: 20px;
+	@include tabletanddesktop{
+		font-size: 25px;
+	}
 }
 .profile {
 	background-image: url("../.././images/profile.jpg");
@@ -150,4 +171,266 @@ header a{
 	width: 200px;
 	border-radius: 200px;
 	border: 4px solid #d3d3d3;
+	margin-bottom: 30px;
+	@include tabletanddesktop{
+		height: 300px;
+		width: 300px;
+	}
+}
+
+//about me section
+
+#aboutme h1{
+	font-family: "Walkway";
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	padding-top: 30px;
+	padding-left: 10px;
+	width: 100%;
+}
+#aboutme{
+	display: flex;
+	flex-wrap: wrap;
+	background-image: url('../../images/bkgd-about-2.jpg');
+	background-size: cover;
+	background-position: bottom;
+	background-attachment: fixed;
+	height: 100vh;
+}
+
+/*skills bar chart*/
+
+.story{
+	width: 100%;
+	padding: 10px;
+}
+.skills{
+	width: 100%;
+	padding: 10px;
+	h3{
+		font-family: "Open Sans";
+		font-style: normal;
+		font-weight: normal;
+		font-size: 25px;
+		width: 100%;
+	}
+	display: flex;
+	flex-wrap: wrap;
+	.grid-container{
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(5, 20%);
+		grid-template-rows: repeat(6, 16.66%);
+	}
+	.stack{
+		grid-column: 1/2;
+		grid-row: 2/3;
+	}
+	.stack-container{
+		grid-row: 3/7;
+		grid-column: 1/2;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.proficiency{
+		grid-column: 2/3;
+		grid-row: 1/2;
+		padding-left: 20px;
+	}
+	.proficiency-container{
+		grid-row: 2/3;
+		grid-column: 2/6;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		padding-bottom: 10px;
+		padding-left: 20px;
+	}
+	.bar-container{
+		grid-row: 3/7;
+		grid-column: 2/6;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-left: 20px;
+	}
+	@keyframes html{
+		from {width: 0%;}
+		to {width: 90%;}
+	}
+	.html.inactive{
+		text-align: right;
+		background-color: red;
+		height: 16px;
+		width: 0;
+	}
+	.html.active{
+		@extend .html.inactive ;
+		animation: html 2s ease-out;
+		animation-fill-mode: forwards;
+	}
+	.css.inactive{
+		@extend .html.inactive ;
+	}
+	.css.active{
+		@extend .html.active ;
+	}
+	@keyframes js{
+		from {width: 0%;}
+		to {width: 65%;}
+	}
+	.js.inactive{
+		text-align: right;
+		background-color: red;
+		height: 16px;
+		width: 0;
+	}
+	.js.active{
+		@extend .js.inactive ;
+		animation: js 2s ease-out;
+		animation-fill-mode: forwards;
+	}
+	@keyframes react{
+		from {width: 0%;}
+		to {width: 40%;}
+	}
+	.react.inactive{
+		text-align: right;
+		background-color: red;
+		height: 16px;
+		width: 0;
+	}
+	.react.active{
+		@extend .react.inactive ;
+		animation: react 2s ease-out;
+		animation-fill-mode: forwards;
+	}
+	.wp.inactive{
+		text-align: right;
+		background-color: red;
+		height: 16px;
+		width: 0;
+	}
+	.wp.active{
+		@extend .wp.inactive ;
+		animation: js 2s ease-out;
+		animation-fill-mode: forwards;
+	}
+}
+
+/*languages bar chart section*/
+
+.languages{
+	width: 100%;
+	padding: 10px;
+	h3{
+		font-family: "Open Sans";
+		font-style: normal;
+		font-weight: normal;
+		font-size: 25px;
+		width: 100%;
+	}
+	display: flex;
+	flex-wrap: wrap;
+	.grid-container{
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(5, 20%);
+		grid-template-rows: repeat(5, 20%);
+	}
+	.language{
+		grid-column: 1/2;
+		grid-row: 2/3;
+	}
+	.languages-container{
+		grid-row: 3/6;
+		grid-column: 1/2;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.proficiency{
+		grid-column: 2/3;
+		grid-row: 1/2;
+		padding-left: 20px;
+	}
+	.proficiency-container{
+		grid-row: 2/3;
+		grid-column: 2/6;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		padding-bottom: 10px;
+		padding-left: 20px;
+	}
+	.bar-container{
+		grid-row: 3/6;
+		grid-column: 2/6;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-left: 20px;
+	}
+	@keyframes german{
+		from {width: 0%;}
+		to {width: 90%;}
+	}
+	.german.inactive{
+		background-color: red;
+		height: 16px;
+		width: 0;
+	}
+	.german.active{
+		@extend .german.inactive ;
+		animation: german 2s ease-out;
+		animation-fill-mode: forwards;
+	}
+	.english.inactive{
+		@extend .german.inactive ;
+	}
+	.english.active{
+		@extend .german.active ;
+	}
+	@keyframes french{
+		from {width: 0%;}
+		to {width: 50%;}
+	}
+	.french.inactive{
+		@extend .german.inactive ;
+	}
+	.french.active{
+		@extend .german.inactive ;
+		animation: french 2s ease-out;
+		animation-fill-mode: forwards;
+	}
+	@keyframes italian{
+		from {width: 0%;}
+		to {width: 20%;}
+	}
+	.italian.inactive{
+		@extend .german.inactive ;
+	}
+	.italian.active{
+		@extend .german.inactive ;
+		animation: italian 2s ease-out;
+		animation-fill-mode: forwards;
+	}
+}
+
+/*personal interest section*/
+
+.personal-interest{
+	width: 100%;
+	padding: 10px;
+	h3{
+		font-family: "Open Sans";
+		font-style: normal;
+		font-weight: normal;
+		font-size: 25px;
+		width: 100%;
+	}
+	display: flex;
+	flex-wrap: wrap;
 }

@@ -45,13 +45,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-body {
-  background-image: url("../.././images/bkgd-home.jpg");
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  height: 100vh; }
-
 header {
   background-color: rgba(163, 163, 163, 0.8);
   display: -webkit-box;
@@ -73,10 +66,20 @@ header {
 header h2 {
   font-family: "Walkway";
   font-style: normal;
-  font-weight: normal;
-  font-size: 30px; }
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px 0; }
+  @media (min-width: 620px) {
+    header h2 {
+      font-size: 40px; } }
 
-header ul {
+header a {
+  text-decoration: none;
+  color: #0b4a70; }
+
+.header-nav {
+  height: 0;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,16 +92,17 @@ header ul {
           justify-content: space-between;
   font-family: "Open Sans";
   font-weight: normal; }
-  header ul i {
+  .header-nav i {
     padding-right: 10px; }
-  header ul li {
-    padding-top: 10px; }
-
-header a {
-  text-decoration: none; }
-
-.header-nav {
-  display: none; }
+  .header-nav li {
+    padding: 10px 20px 10px 0; }
+  @media (min-width: 620px) {
+    .header-nav {
+      height: auto;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row; } }
 
 .branding {
   display: -webkit-box;
@@ -114,6 +118,9 @@ header a {
       -ms-flex-order: -1;
           order: -1;
   cursor: pointer; }
+  @media (min-width: 620px) {
+    .hamburger {
+      display: none; } }
 
 #hero {
   display: -webkit-box;
@@ -129,18 +136,31 @@ header a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100%; }
+  height: 100%;
+  background-image: url("../.././images/bkgd-home.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh; }
 
-#hero h2 {
+#hero h1 {
   font-family: "Southern Aire Personal Use Only";
   font-style: normal;
   font-weight: normal;
   font-size: 50px; }
+  @media (min-width: 620px) {
+    #hero h1 {
+      font-size: 80px; } }
 
-#hero h1 {
+#hero h2 {
   font-family: "Walkway";
   font-style: normal;
-  font-weight: normal; }
+  font-weight: normal;
+  font-size: 20px; }
+  @media (min-width: 620px) {
+    #hero h2 {
+      font-size: 25px; } }
 
 .profile {
   background-image: url("../.././images/profile.jpg");
@@ -149,4 +169,317 @@ header a {
   height: 200px;
   width: 200px;
   border-radius: 200px;
-  border: 4px solid #d3d3d3; }
+  border: 4px solid #d3d3d3;
+  margin-bottom: 30px; }
+  @media (min-width: 620px) {
+    .profile {
+      height: 300px;
+      width: 300px; } }
+
+#aboutme h1 {
+  font-family: "Walkway";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  padding-top: 30px;
+  padding-left: 10px;
+  width: 100%; }
+
+#aboutme {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-image: url("../../images/bkgd-about-2.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  height: 100vh; }
+
+/*skills bar chart*/
+.story {
+  width: 100%;
+  padding: 10px; }
+
+.skills {
+  width: 100%;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .skills h3 {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    width: 100%; }
+  .skills .grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(6, 16.66%); }
+  .skills .stack {
+    grid-column: 1/2;
+    grid-row: 2/3; }
+  .skills .stack-container {
+    grid-row: 3/7;
+    grid-column: 1/2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+  .skills .proficiency {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding-left: 20px; }
+  .skills .proficiency-container {
+    grid-row: 2/3;
+    grid-column: 2/6;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding-bottom: 10px;
+    padding-left: 20px; }
+  .skills .bar-container {
+    grid-row: 3/7;
+    grid-column: 2/6;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-left: 20px; }
+
+@-webkit-keyframes html {
+  from {
+    width: 0%; }
+  to {
+    width: 90%; } }
+
+@keyframes html {
+  from {
+    width: 0%; }
+  to {
+    width: 90%; } }
+  .skills .html.inactive, .skills .html.active, .skills .css.active, .skills .css.inactive {
+    text-align: right;
+    background-color: red;
+    height: 16px;
+    width: 0; }
+  .skills .html.active, .skills .css.active {
+    -webkit-animation: html 2s ease-out;
+            animation: html 2s ease-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+
+@-webkit-keyframes js {
+  from {
+    width: 0%; }
+  to {
+    width: 65%; } }
+
+@keyframes js {
+  from {
+    width: 0%; }
+  to {
+    width: 65%; } }
+  .skills .js.inactive, .skills .js.active {
+    text-align: right;
+    background-color: red;
+    height: 16px;
+    width: 0; }
+  .skills .js.active {
+    -webkit-animation: js 2s ease-out;
+            animation: js 2s ease-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+
+@-webkit-keyframes react {
+  from {
+    width: 0%; }
+  to {
+    width: 40%; } }
+
+@keyframes react {
+  from {
+    width: 0%; }
+  to {
+    width: 40%; } }
+  .skills .react.inactive, .skills .react.active {
+    text-align: right;
+    background-color: red;
+    height: 16px;
+    width: 0; }
+  .skills .react.active {
+    -webkit-animation: react 2s ease-out;
+            animation: react 2s ease-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+  .skills .wp.inactive, .skills .wp.active {
+    text-align: right;
+    background-color: red;
+    height: 16px;
+    width: 0; }
+  .skills .wp.active {
+    -webkit-animation: js 2s ease-out;
+            animation: js 2s ease-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+
+/*languages bar chart section*/
+.languages {
+  width: 100%;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .languages h3 {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    width: 100%; }
+  .languages .grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(5, 20%); }
+  .languages .language {
+    grid-column: 1/2;
+    grid-row: 2/3; }
+  .languages .languages-container {
+    grid-row: 3/6;
+    grid-column: 1/2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+  .languages .proficiency {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding-left: 20px; }
+  .languages .proficiency-container {
+    grid-row: 2/3;
+    grid-column: 2/6;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding-bottom: 10px;
+    padding-left: 20px; }
+  .languages .bar-container {
+    grid-row: 3/6;
+    grid-column: 2/6;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-left: 20px; }
+
+@-webkit-keyframes german {
+  from {
+    width: 0%; }
+  to {
+    width: 90%; } }
+
+@keyframes german {
+  from {
+    width: 0%; }
+  to {
+    width: 90%; } }
+  .languages .german.inactive, .languages .german.active, .languages .english.active, .languages .english.inactive, .languages .french.inactive, .languages .french.active, .languages .italian.inactive, .languages .italian.active {
+    background-color: red;
+    height: 16px;
+    width: 0; }
+  .languages .german.active, .languages .english.active {
+    -webkit-animation: german 2s ease-out;
+            animation: german 2s ease-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+
+@-webkit-keyframes french {
+  from {
+    width: 0%; }
+  to {
+    width: 50%; } }
+
+@keyframes french {
+  from {
+    width: 0%; }
+  to {
+    width: 50%; } }
+  .languages .french.active {
+    -webkit-animation: french 2s ease-out;
+            animation: french 2s ease-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+
+@-webkit-keyframes italian {
+  from {
+    width: 0%; }
+  to {
+    width: 20%; } }
+
+@keyframes italian {
+  from {
+    width: 0%; }
+  to {
+    width: 20%; } }
+  .languages .italian.active {
+    -webkit-animation: italian 2s ease-out;
+            animation: italian 2s ease-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+
+/*personal interest section*/
+.personal-interest {
+  width: 100%;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .personal-interest h3 {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    width: 100%; }
