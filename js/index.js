@@ -48,3 +48,9 @@ $(window).scroll(function(){
   $('.bar-container').children().addClass('inactive');
 }
 });
+
+//setting height of project image to keep ratio with viewport width
+
+var screenshotWidth = $('.project').width();
+var screenshotHeight = screenshotWidth / 1.7518;
+$('.project').css({'height': screenshotHeight});

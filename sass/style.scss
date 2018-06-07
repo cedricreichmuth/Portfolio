@@ -179,7 +179,11 @@ header a{
 	border-radius: 200px;
 	border: 4px solid #d3d3d3;
 	margin-bottom: 30px;
-	@include tabletanddesktop{
+	@include tablet{
+		width: 250px;
+		height: 250px;
+	}
+	@include desktop{
 		height: 300px;
 		width: 300px;
 	}
@@ -478,10 +482,13 @@ header a{
 	background-position: bottom;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	padding: 10px;
-	height: 100vh;
-	overflow: scroll;
-	scroll-behavior: smooth;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding-bottom: 30px;
+	@include desktop{
+		height: 100vh;
+	}
 	h1{
 		font-family: "Walkway";
     font-style: normal;
@@ -492,66 +499,120 @@ header a{
 			padding: 50px 0 30px 10px;
 		}
     width: 100%;
-	}
-	.projects-container{
-		display: flex;
-		flex-wrap: wrap;
-		overflow: hidden;
-	}
-	.project{
-		width: 100%;
-		overflow: hidden;
-		border: 10px solid transparent;
-		box-shadow: 0 0 0 2px black;
-		box-sizing: border-box;
-		@include tablet{
-			width: 50%;
-		}
-		a{
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			flex-wrap: wrap;
-			height: 100%;
-			width: 100%;
-			padding: 0 10px;
-			box-sizing: border-box;
-		}
-		h3{
-			padding-bottom: 20px;
-			font-size: 20px;
-		}
-		p{
-			padding-top: 20px;
-			text-align: center;
-			width: 80%;
-		}
-	}
-	.aloha{
-		display: flex;
-		justify-content: center;
-		overflow: hidden;
-		img{
-			height: 229px;
-			width: 400px;
-		}
-	}
-	.lakeshorts{
-		@extend .aloha ;
-	}
-	.pokedex{
-		@extend .aloha ;
-	}
-	.react-todo{
-		@extend .aloha ;
-	}
-	.inhabitent{
-		@extend .aloha ;
-	}
-	.qod{
-		@extend .aloha ;
+		max-width: 1220px;
 	}
 }
-.slick-slider .slick-prev, .slick-slider .slick-next{
-	position: relative;
+.projects-container{
+	width: 100%;
+	max-width: 1220px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.project{
+	width: 100%;
+	height: auto;
+	display: flex;
+	&:nth-child(even){
+		justify-content: flex-end;
+		.text-container{
+			background: linear-gradient(to left, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0));
+			width: 90%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: flex-end;
+			.description{
+				width: 50%;
+			}
+			h3{
+				width: 50%;
+			}
+			a{
+				width: 50%;
+			}
+		}
+	}
+	&:nth-child(odd){
+		justify-content: flex-start;
+		.text-container{
+			background: linear-gradient(to right, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0));
+			width: 90%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+		}
+		.description{
+			width: 50%;
+		}
+	}
+	&.aloha{
+		background-image: url('../../images/screenshot-aloha.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	&.lakeshorts{
+		background-image: url('../../images/screenshot-lakeshorts.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	&.pokedex{
+		background-image: url('../../images/screenshot-pokedex.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	&.todo{
+		background-image: url('../../images/screenshot-todo.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	&.inhabitent{
+		background-image: url('../../images/screenshot-inhabitent.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	&.qod{
+		background-image: url('../../images/screenshot-qod.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	h3{
+		font-size: 20px;
+	}
+	.button{
+		width: 100px;
+		padding: 10px;
+		border: 1px solid grey;
+		border-radius: 5px;
+		text-align: center;
+	}
+	.text-container{
+		width: 50%;
+	}
+	@include tablet{
+		width: 50%;
+	}
+	@include desktop{
+		width: 33.33%;
+		.text-container:nth-child(odd), .text-container:nth-child(even){
+			width: 100%;
+			background: transparent;
+			visibility: hidden;
+		}
+		&:hover{
+			.text-container:nth-child(odd), .text-container:nth-child(even){
+				background-color: rgba(184, 235, 242, 0.8);
+				align-items: center;
+				justify-content: space-around;
+				visibility: visible;
+				a, h3{
+					width: auto;
+				}
+				.description{
+					width: 60%;
+					text-align: center;
+				}
+			}
+		}
+	}
 }
