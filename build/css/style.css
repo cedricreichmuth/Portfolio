@@ -45,6 +45,15 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+a {
+  text-decoration: none;
+  color: inherit; }
+
+h3 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: normal; }
+
 header {
   background-color: rgba(163, 163, 163, 0.8);
   display: -webkit-box;
@@ -60,8 +69,8 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: fixed;
-  width: 100%; }
+  width: 100%;
+  z-index: 3; }
 
 header h2 {
   font-family: "Walkway";
@@ -521,13 +530,74 @@ header a {
   background-position: bottom;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 100vh; }
+  padding: 10px;
+  height: 100vh;
+  overflow: scroll;
+  scroll-behavior: smooth; }
+  #projects h1 {
+    font-family: "Walkway";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    padding: 50px 0 30px 10px;
+    width: 100%; }
+    @media (min-width: 620px) {
+      #projects h1 {
+        padding: 50px 0 30px 10px; } }
+  #projects .projects-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    overflow: hidden; }
+  #projects .project {
+    width: 100%;
+    overflow: hidden;
+    border: 10px solid transparent;
+    -webkit-box-shadow: 0 0 0 2px black;
+            box-shadow: 0 0 0 2px black;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+    @media (min-width: 620px) and (max-width: 1023px) {
+      #projects .project {
+        width: 50%; } }
+    #projects .project a {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      height: 100%;
+      width: 100%;
+      padding: 0 10px;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box; }
+    #projects .project h3 {
+      padding-bottom: 20px;
+      font-size: 20px; }
+    #projects .project p {
+      padding-top: 20px;
+      text-align: center;
+      width: 80%; }
+  #projects .aloha, #projects .lakeshorts, #projects .pokedex, #projects .react-todo, #projects .inhabitent, #projects .qod {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    overflow: hidden; }
+    #projects .aloha img, #projects .lakeshorts img, #projects .pokedex img, #projects .react-todo img, #projects .inhabitent img, #projects .qod img {
+      height: 229px;
+      width: 400px; }
 
-#particles-js {
-  position: relative;
-  background-image: url("../../images/bkgd-projects-2.jpg");
-  background-size: cover;
-  background-position: bottom;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  height: 100vh; }
+.slick-slider .slick-prev, .slick-slider .slick-next {
+  position: relative; }

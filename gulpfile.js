@@ -6,10 +6,12 @@ var sass = require("gulp-sass");
 var autoprefixer = require("gulp-autoprefixer");
 var cssnano = require("gulp-cssnano");
 var rename = require("gulp-rename");
+var plumber = require("gulp-plumber");
 
 gulp.task("sass", function() {
   return gulp
   .src("./sass/*.scss")
+  .pipe(plumber())
   .pipe(sass())
   .pipe(autoprefixer({
     browsers: ["last 2 versions"]
@@ -24,6 +26,7 @@ gulp.task("sass", function() {
 gulp.task("scripts", function() {
   return gulp
   .src("./js/*.js")
+  .pipe(plumber())
   .pipe(uglify())
   .pipe(rename({
     extname: ".min.js"

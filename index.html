@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link rel="stylesheet" href="build/css/style.min.css">
     <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
   </head>
   <body>
+    <div class="site">
     <header>
       <div class="branding">
         <h2>Cedric Reichmuth</h2>
@@ -28,45 +31,52 @@
       <h1>Cedric Reichmuth</h1>
       <h2>Front-end web developer</h2>
     </section>
-    <section id="particles-js">
-      <h1>Projects</h1>
-      <div class="projects-container">
-        <div class="aloha">
-          <a href="https://cedricreichmuth.github.io/Aloha/html/index.html">
-            <h1>Aloha Apparel Co.</h1>
-            <p class="aloha-description">A training project about developing a single-page website for a fictional clothing company</p>
+    <section id="projects">
+      <h1>Recent Projects</h1>
+      <article class="projects-container">
+        <div class="project">
+          <a href="https://cedricreichmuth.github.io/Aloha/html/index.html" target="blank">
+            <h3>Aloha Apparel Co.</h3>
+            <div class="aloha"><img src="images/screenshot-aloha.png" alt="Screenshot of the aloha homepage"></div>
+            <p class="aloha-description">A single-page website for a fictional clothing company</p>
           </a>
-          <!-- bkgd image "images/screenshot-aloha.png"-->
         </div>
-        <div class="instanews">
-          <a href="https://cedricreichmuth.github.io/Instanews/">
-            <h1>Instanews App</h1>
-            <p class="instanews-description">A training project about developing an app with jQuery that dynamically fetches content from New York Times and displays it</p>
-          </a>
-          <!-- bkgd image"images/screenshot-instanews.png"-->
-        </div>
-        <div class="lakeshorts">
-          <a href="http://lakeshorts.carpentergroup.ca/kiosk/lakeshorts.html">
-            <h1>Lakeshorts</h1>
+        <div class="project">
+          <a href="http://lakeshorts.carpentergroup.ca/kiosk/lakeshorts.html" target="blank">
+            <h3>Lakeshorts</h3>
+            <div class="lakeshorts"><img src="images/screenshot-lakeshorts.png" alt="Screenshot of the sizzle reel page for Lakeshorts international film festival"></div>
             <p class="lakeshorts-description">A project for the Lakeshorts international short film festival to show their sizzle reels on a special screen</p>
           </a>
-          <!-- bkgd image"images/screenshot-lakeshorts.png"-->
         </div>
-        <div class="pokedex">
-          <a href="https://glacial-depths-35449.herokuapp.com/">
-            <h1>Pokegenerator App</h1>
-            <p class="pokedex-description">A React App that displays a Pokemon whenever you click a button, or shows you a specific Pokemon you can search for by name</p>
+        <div class="project">
+          <a href="https://glacial-depths-35449.herokuapp.com/" target="blank">
+            <h3>Pokégenerator App</h3>
+            <div class="pokedex"><img src="images/screenshot-pokedex.png" alt="Screenshot of the Pokégenerator App"></div>
+            <p class="pokedex-description">A React App that displays a Pokémon whenever you click a button, or shows you a specific Pokémon you can search for by name</p>
           </a>
-          <!-- bkgd image"images/screenshot-pokegenerator.png"-->
         </div>
-        <div class="react-todo">
-          <a href="https://intense-anchorage-82215.herokuapp.com/">">
-            <h1>React To-Do App</h1>
+        <div class="project">
+          <a href="https://intense-anchorage-82215.herokuapp.com/" target="blank">
+            <h3>React To-Do App</h3>
+            <div class="react-todo"><img src="images/screenshot-todo.png" alt="Screenshot of the to-do App"></div>
             <p class="todo-description">A React App for managing your to-do-list.</p>
           </a>
-          <!-- bkgd image"images/screenshot-react-todo.png"-->
         </div>
-      </div>
+        <div class="project">
+          <a href="#" target="blank">
+            <h3>Inhabitent</h3>
+            <div class="inhabitent"><img src="images/screenshot-inhabitent.png" alt="Screenshot of the Inhabitent front-page"></div>
+            <p class="inhabitent-description">A wordpress page for an outdoor store.</p>
+          </a>
+        </div>
+        <div class="project">
+          <a href="#" target="blank">
+            <h3>Quotes on Dev</h3>
+            <div class="qod"><img src="images/screenshot-qod.png" alt="Screenshot of the quotes on dev page"></div>
+            <p class="qod-description">A wordpress page for funny quotes on development.</p>
+          </a>
+        </div>
+      </article>
     </section>
     <section id="aboutme">
       <h1>About Me</h1>
@@ -150,6 +160,9 @@
     <script src="build/js/particles.min.js"></script>
     <script src="build/js/app.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script rel="script" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
     <script src="build/js/index.min.js"></script>
+   </div>
   </body>
+
 </html>

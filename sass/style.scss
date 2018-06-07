@@ -47,6 +47,17 @@ table {
 	border-spacing: 0;
 }
 
+//typograpghy
+a{
+	text-decoration: none;
+	color: inherit;
+}
+h3{
+	font-family: "Open Sans";
+	font-style: normal;
+	font-weight: normal;
+}
+
 // mixins
 @mixin center-block {
 	display: block;
@@ -73,18 +84,14 @@ $desktop-width: 1024px;
   }
 }
 
-
-body {
-
-}
 header {
 	background-color: rgba(163, 163, 163, 0.8);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	position: fixed;
 	width: 100%;
+	z-index: 3;
 }
 header h2 {
 	font-family: "Walkway";
@@ -471,14 +478,80 @@ header a{
 	background-position: bottom;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
+	padding: 10px;
 	height: 100vh;
+	overflow: scroll;
+	scroll-behavior: smooth;
+	h1{
+		font-family: "Walkway";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    padding: 50px 0 30px 10px;
+		@include tabletanddesktop{
+			padding: 50px 0 30px 10px;
+		}
+    width: 100%;
+	}
+	.projects-container{
+		display: flex;
+		flex-wrap: wrap;
+		overflow: hidden;
+	}
+	.project{
+		width: 100%;
+		overflow: hidden;
+		border: 10px solid transparent;
+		box-shadow: 0 0 0 2px black;
+		box-sizing: border-box;
+		@include tablet{
+			width: 50%;
+		}
+		a{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			flex-wrap: wrap;
+			height: 100%;
+			width: 100%;
+			padding: 0 10px;
+			box-sizing: border-box;
+		}
+		h3{
+			padding-bottom: 20px;
+			font-size: 20px;
+		}
+		p{
+			padding-top: 20px;
+			text-align: center;
+			width: 80%;
+		}
+	}
+	.aloha{
+		display: flex;
+		justify-content: center;
+		overflow: hidden;
+		img{
+			height: 229px;
+			width: 400px;
+		}
+	}
+	.lakeshorts{
+		@extend .aloha ;
+	}
+	.pokedex{
+		@extend .aloha ;
+	}
+	.react-todo{
+		@extend .aloha ;
+	}
+	.inhabitent{
+		@extend .aloha ;
+	}
+	.qod{
+		@extend .aloha ;
+	}
 }
-#particles-js{
+.slick-slider .slick-prev, .slick-slider .slick-next{
 	position: relative;
-	background-image: url('../../images/bkgd-projects-2.jpg');
-	background-size: cover;
-	background-position: bottom;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	height: 100vh;
 }
