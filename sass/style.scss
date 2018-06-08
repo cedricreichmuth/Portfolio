@@ -57,7 +57,14 @@ h3{
 	font-style: normal;
 	font-weight: normal;
 }
-
+p{
+	font-family: "Montserrat";
+	font-weight: 300;
+	font-style: normal;
+	letter-spacing: 1px;
+	font-size: 16px;
+	line-height: 1.25;
+}
 // mixins
 @mixin center-block {
 	display: block;
@@ -196,39 +203,76 @@ header a{
 	font-style: normal;
 	font-weight: bold;
 	font-size: 30px;
-	padding-top: 30px;
-	padding-left: 10px;
+	max-width: 1220px;
 	width: 100%;
+	box-sizing: border-box;
+	padding: 20px 0 20px 10px;
 }
 #aboutme{
-	display: flex;
-	flex-wrap: wrap;
 	background-image: url('../../images/bkgd-about-2.jpg');
 	background-size: cover;
 	background-position: bottom;
 	background-attachment: fixed;
-	height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 10px;
+	height: 125vh;
+	@include tabletanddesktop{
+		height: 100vh;
+	}
+	.flex-container{
+		display: flex;
+		flex-wrap: wrap;
+		align-content: space-around;
+		max-width: 1220px;
+		width: 100%;
+		height: 90%;
+		h3{
+			padding-bottom: 10px;
+		}
+	}
 }
 
 /*skills bar chart*/
 
 .story{
 	width: 100%;
-	padding: 10px;
+	box-sizing: border-box;
+	padding-left: 10px;
+	@include tabletanddesktop{
+		width: 51%;
+	}
+	@include desktop{
+		p{
+			font-size: 20px;
+		}
+	}
 }
 .skills{
 	width: 100%;
+	box-sizing: border-box;
 	@include tabletanddesktop{
 		width: 50%;
-		box-sizing: border-box;
+		order: 1;
+		padding-bottom: 50px;
+	}
+	@include tablet{
+		p{
+			font-size: 12px;
+		}
 	}
 	padding: 10px;
+
 	h3{
 		font-family: "Open Sans";
 		font-style: normal;
 		font-weight: normal;
 		font-size: 25px;
 		width: 100%;
+	}
+	p{
+		letter-spacing: 0;
 	}
 	display: flex;
 	flex-wrap: wrap;
@@ -339,11 +383,22 @@ header a{
 
 .languages{
 	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
 	@include tabletanddesktop{
 		width: 50%;
-		box-sizing: border-box;
+		padding-left: 10px;
+		order: 1;
+		padding-bottom: 50px;
 	}
-	padding: 10px;
+	@include desktop{
+		padding-left: 30px;
+	}
+	@include tablet{
+		p{
+			font-size: 12px;
+		}
+	}
 	h3{
 		font-family: "Open Sans";
 		font-style: normal;
@@ -444,7 +499,8 @@ header a{
 
 .personal-interest{
 	width: 100%;
-	padding: 10px;
+	padding: 0 20px;
+	box-sizing: border-box;
 	h3{
 		font-family: "Open Sans";
 		font-style: normal;
@@ -454,10 +510,11 @@ header a{
 	}
 	display: flex;
 	flex-wrap: wrap;
+
 	.interests{
 		width: 100%;
 		display: flex;
-		justify-content: space-around;
+		justify-content: space-between;
 		div{
 			background-color: rgba(127, 171, 239, 0.5);
 			padding: 10px;
@@ -472,6 +529,10 @@ header a{
 			width: 50px;
 		}
 	}
+	@include tabletanddesktop{
+		width: 49%;
+		flex-wrap: wrap;
+	}
 }
 
 /*Projects section*/
@@ -484,6 +545,7 @@ header a{
 	background-repeat: no-repeat;
 	display: flex;
 	justify-content: center;
+	align-content: space-around;
 	flex-wrap: wrap;
 	padding-bottom: 30px;
 	@include desktop{
@@ -507,6 +569,10 @@ header a{
 	max-width: 1220px;
 	display: flex;
 	flex-wrap: wrap;
+	align-content: center;
+	@include desktop{
+		padding-bottom: 50px;
+	}
 }
 
 .project{
@@ -522,6 +588,7 @@ header a{
 			flex-direction: column;
 			justify-content: space-around;
 			align-items: flex-end;
+			padding: 0 20px;
 			.description{
 				width: 50%;
 			}
@@ -541,9 +608,11 @@ header a{
 			display: flex;
 			flex-direction: column;
 			justify-content: space-around;
+			padding: 0 20px;
 		}
 		.description{
 			width: 50%;
+			line-height: 1;
 		}
 	}
 	&.aloha{
@@ -585,15 +654,17 @@ header a{
 		border: 1px solid grey;
 		border-radius: 5px;
 		text-align: center;
-	}
-	.text-container{
-		width: 50%;
+		&:hover{
+			border-color: #2bbbce;
+			background-color: #c5f3f9;
+		}
 	}
 	@include tablet{
 		width: 50%;
 	}
 	@include desktop{
 		width: 33.33%;
+		height: auto;
 		.text-container:nth-child(odd), .text-container:nth-child(even){
 			width: 100%;
 			background: transparent;
@@ -615,4 +686,68 @@ header a{
 			}
 		}
 	}
+}
+
+//contact page
+
+#contact{
+	height: 100vh;
+	h1{
+		width: 100%;
+		max-width: 1220px;
+		position: absolute;
+		z-index: 1;
+		font-family: "Walkway";
+		font-style: normal;
+		font-weight: bold;
+		font-size: 30px;
+		padding: 20px 0 20px 10px;
+	}
+	.flex-container{
+		width: 100%;
+		max-width: 1220px;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		z-index: 1;
+	}
+}
+
+.card-container{
+	position: absolute;
+	z-index: 2;
+	background-color: rgba(186, 186, 186, 0.6);
+	border-radius: 20px;
+	height: 200px;
+	width: 250px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	h3{
+		font-size: 20px;
+	}
+	.button{
+		padding: 10px 20px;
+		border: 1px solid grey;
+		border-radius: 5px;
+		&:hover{
+			border-color: #2bbbce;
+			background-color: #c5f3f9;
+		}
+	}
+}
+#particles-js{
+  width: 100%;
+  height: 100%;
+	background-color: #edfafc;
+  background-image: url('');
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+	display: flex;
+	justify-content: center;
 }
