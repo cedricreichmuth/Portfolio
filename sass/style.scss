@@ -90,15 +90,37 @@ $desktop-width: 1024px;
     @content;
   }
 }
-
-header {
-	background-color: rgba(163, 163, 163, 0.8);
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+@keyframes fullscreen{
+	from {height: 0;}
+	to {height: 100vh;}
+}
+@keyframes transition{
+	from {height: 100vh;}
+	to {height: 50px;}
+}
+header.fullscreen{
 	width: 100%;
+	height: 100vh;
+	background-color: #a59f9f;
+	animation: fullscreen 1s ease-out;
+	animation-fill-mode: forwards;
+}
+header.transition{
+	animation: transition 1s ease-out;
+}
+header {
+	position: absolute;
 	z-index: 3;
+	@include tabletanddesktop{
+		background: linear-gradient(to bottom, rgba(163, 163, 163, 0.9) 50%, rgba(163, 163, 163, 0));
+		height: 50px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		z-index: 3;
+	}
 }
 header h2 {
 	font-family: "Walkway";
@@ -116,10 +138,12 @@ header a{
 	color: #0b4a70;
 }
 .header-nav{
+	padding-left: 20px;
 	height: 0;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	justify-content: space-between;
 	font-family: "Open Sans";
 	font-weight: normal;
@@ -128,18 +152,25 @@ header a{
 	}
 	li{
 		padding: 10px 20px 10px 0;
+		text-transform: uppercase;
 	}
 	@include tabletanddesktop{
 		height: auto;
 		flex-direction: row;
+		padding: 0;
 	}
+}
+.header-nav.mobile{
+	height: 90%;
+	justify-content: space-around;
+	font-size: 30px;
 }
 .branding{
 	display: flex;
 	align-items: center;
 }
 .hamburger{
-	padding-right: 20px;
+	padding: 20px 20px 0 20px;
 	order: -1;
 	cursor: pointer;
 	@include tabletanddesktop{
@@ -499,7 +530,7 @@ header a{
 
 .personal-interest{
 	width: 100%;
-	padding: 0 20px;
+	padding: 0 10px;
 	box-sizing: border-box;
 	h3{
 		font-family: "Open Sans";
@@ -701,7 +732,7 @@ header a{
 		font-style: normal;
 		font-weight: bold;
 		font-size: 30px;
-		padding: 20px 0 20px 10px;
+		padding: 20px 0 20px 20px;
 	}
 	.flex-container{
 		width: 100%;

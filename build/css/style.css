@@ -62,23 +62,66 @@ p {
   font-size: 16px;
   line-height: 1.25; }
 
-header {
-  background-color: rgba(163, 163, 163, 0.8);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+@-webkit-keyframes fullscreen {
+  from {
+    height: 0; }
+  to {
+    height: 100vh; } }
+
+@keyframes fullscreen {
+  from {
+    height: 0; }
+  to {
+    height: 100vh; } }
+
+@-webkit-keyframes transition {
+  from {
+    height: 100vh; }
+  to {
+    height: 50px; } }
+
+@keyframes transition {
+  from {
+    height: 100vh; }
+  to {
+    height: 50px; } }
+
+header.fullscreen {
   width: 100%;
+  height: 100vh;
+  background-color: #a59f9f;
+  -webkit-animation: fullscreen 1s ease-out;
+          animation: fullscreen 1s ease-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
+
+header.transition {
+  -webkit-animation: transition 1s ease-out;
+          animation: transition 1s ease-out; }
+
+header {
+  position: absolute;
   z-index: 3; }
+  @media (min-width: 620px) {
+    header {
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(163, 163, 163, 0.9)), to(rgba(163, 163, 163, 0)));
+      background: linear-gradient(to bottom, rgba(163, 163, 163, 0.9) 50%, rgba(163, 163, 163, 0));
+      height: 50px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      width: 100%;
+      z-index: 3; } }
 
 header h2 {
   font-family: "Walkway";
@@ -95,6 +138,7 @@ header a {
   color: #0b4a70; }
 
 .header-nav {
+  padding-left: 20px;
   height: 0;
   overflow: hidden;
   display: -webkit-box;
@@ -104,6 +148,9 @@ header a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -112,14 +159,22 @@ header a {
   .header-nav i {
     padding-right: 10px; }
   .header-nav li {
-    padding: 10px 20px 10px 0; }
+    padding: 10px 20px 10px 0;
+    text-transform: uppercase; }
   @media (min-width: 620px) {
     .header-nav {
       height: auto;
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
           -ms-flex-direction: row;
-              flex-direction: row; } }
+              flex-direction: row;
+      padding: 0; } }
+
+.header-nav.mobile {
+  height: 90%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 30px; }
 
 .branding {
   display: -webkit-box;
@@ -130,7 +185,7 @@ header a {
           align-items: center; }
 
 .hamburger {
-  padding-right: 20px;
+  padding: 20px 20px 0 20px;
   -webkit-box-ordinal-group: 0;
       -ms-flex-order: -1;
           order: -1;
@@ -554,7 +609,7 @@ header a {
 /*personal interest section*/
 .personal-interest {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-box;
@@ -765,7 +820,7 @@ header a {
     font-style: normal;
     font-weight: bold;
     font-size: 30px;
-    padding: 20px 0 20px 10px; }
+    padding: 20px 0 20px 20px; }
   #contact .flex-container {
     width: 100%;
     max-width: 1220px;
