@@ -73,10 +73,16 @@ p{
 }
 
 $tablet-width: 620px;
+$smalltablet-width: 700px;
 $desktop-width: 1024px;
 
 @mixin tablet {
   @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+@mixin smalltablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$smalltablet-width}) {
     @content;
   }
 }
@@ -90,6 +96,8 @@ $desktop-width: 1024px;
     @content;
   }
 }
+
+
 @keyframes fullscreen{
 	from {height: 0;}
 	to {height: 100vh;}
@@ -117,9 +125,12 @@ header {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
+		align-items: flex-end;
 		width: 100%;
 		z-index: 3;
+	}
+	@include tablet{
+		align-items: center;
 	}
 }
 header h2 {
@@ -135,7 +146,7 @@ header h2 {
 
 header a{
 	text-decoration: none;
-	color: #0b4a70;
+	color: white;
 }
 .header-nav{
 	padding-left: 20px;
@@ -145,18 +156,25 @@ header a{
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
-	font-family: "Open Sans";
-	font-weight: normal;
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 300;
 	i{
 		padding-right: 10px;
 	}
 	li{
-		padding: 10px 20px 10px 0;
+		padding: 10px 50px 10px 0;
 		text-transform: uppercase;
+		&:nth-child(4){
+			padding-right: 0;
+		}
 	}
 	@include tabletanddesktop{
 		height: auto;
 		flex-direction: row;
+		padding-right: 40px;
+	}
+	@include tablet{
 		padding: 0;
 	}
 }
@@ -173,6 +191,9 @@ header a{
 	padding: 20px 20px 0 20px;
 	order: -1;
 	cursor: pointer;
+	i{
+		text-shadow: 3px 3px 2px gray;
+	}
 	@include tabletanddesktop{
 		display: none;
 	}
@@ -237,7 +258,10 @@ header a{
 	max-width: 1220px;
 	width: 100%;
 	box-sizing: border-box;
-	padding: 20px 0 20px 10px;
+	padding: 20px 0 20px 50px;
+	@include tabletanddesktop{
+		padding: 40px 0 20px 10px;
+	}
 }
 #aboutme{
 	background-image: url('../../images/bkgd-about-2.jpg');
@@ -256,11 +280,14 @@ header a{
 		display: flex;
 		flex-wrap: wrap;
 		align-content: space-around;
+		justify-content: space-between;
 		max-width: 1220px;
 		width: 100%;
 		height: 90%;
+		box-sizing: border-box;
+		padding-bottom: 50px;
 		h3{
-			padding-bottom: 10px;
+			padding-bottom: 20px;
 		}
 	}
 }
@@ -272,7 +299,7 @@ header a{
 	box-sizing: border-box;
 	padding-left: 10px;
 	@include tabletanddesktop{
-		width: 51%;
+		width: 45%;
 	}
 	@include desktop{
 		p{
@@ -283,68 +310,63 @@ header a{
 .skills{
 	width: 100%;
 	box-sizing: border-box;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	padding: 10px;
+	h3{
+		font-family: "Open Sans";
+		font-style: normal;
+		font-weight: normal;
+		font-size: 25px;
+		padding-left: 50px;
+		width: 100%;
+		@include tabletanddesktop{
+			padding: 0;
+		}
+	}
+	p{
+		letter-spacing: 0;
+		line-height: 1.75;
+	}
 	@include tabletanddesktop{
-		width: 50%;
+		width: 45%;
 		order: 1;
-		padding-bottom: 50px;
 	}
 	@include tablet{
 		p{
 			font-size: 12px;
 		}
 	}
-	padding: 10px;
 
-	h3{
-		font-family: "Open Sans";
-		font-style: normal;
-		font-weight: normal;
-		font-size: 25px;
-		width: 100%;
-	}
-	p{
-		letter-spacing: 0;
-	}
-	display: flex;
-	flex-wrap: wrap;
 	.grid-container{
 		width: 100%;
 		display: grid;
 		grid-template-columns: repeat(5, 20%);
 		grid-template-rows: repeat(6, 16.66%);
 	}
-	.stack{
-		grid-column: 1/2;
-		grid-row: 2/3;
-	}
 	.stack-container{
-		grid-row: 3/7;
+		grid-row: 2/7;
 		grid-column: 1/2;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 	}
-	.proficiency{
-		grid-column: 2/3;
-		grid-row: 1/2;
-		padding-left: 20px;
-	}
 	.proficiency-container{
-		grid-row: 2/3;
+		grid-row: 1/2;
 		grid-column: 2/6;
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		padding-bottom: 10px;
 		padding-left: 20px;
 	}
 	.bar-container{
-		grid-row: 3/7;
+		grid-row: 2/7;
 		grid-column: 2/6;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		padding-left: 20px;
+		padding: 5px 0 5px 20px;
 	}
 	@keyframes html{
 		from {width: 0%;}
@@ -353,6 +375,7 @@ header a{
 	.html.inactive{
 		text-align: right;
 		background-color: rgba(127, 171, 239, 0.5);
+		border-radius: 0 5px 5px 0;
 		height: 16px;
 		width: 0;
 	}
@@ -372,10 +395,7 @@ header a{
 		to {width: 65%;}
 	}
 	.js.inactive{
-		text-align: right;
-		background-color: rgba(127, 171, 239, 0.5);
-		height: 16px;
-		width: 0;
+		@extend .html.inactive ;
 	}
 	.js.active{
 		@extend .js.inactive ;
@@ -387,10 +407,7 @@ header a{
 		to {width: 40%;}
 	}
 	.react.inactive{
-		text-align: right;
-		background-color: rgba(127, 171, 239, 0.5);
-		height: 16px;
-		width: 0;
+		@extend .html.inactive ;
 	}
 	.react.active{
 		@extend .react.inactive ;
@@ -398,10 +415,7 @@ header a{
 		animation-fill-mode: forwards;
 	}
 	.wp.inactive{
-		text-align: right;
-		background-color: rgba(127, 171, 239, 0.5);
-		height: 16px;
-		width: 0;
+		@extend .html.inactive ;
 	}
 	.wp.active{
 		@extend .wp.inactive ;
@@ -416,11 +430,28 @@ header a{
 	width: 100%;
 	box-sizing: border-box;
 	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	p{
+	  letter-spacing: 0;
+	  line-height: 1.75;
+	}
+	h3{
+		font-family: "Open Sans";
+		font-style: normal;
+		font-weight: normal;
+		font-size: 25px;
+		width: 100%;
+		padding-left: 50px;
+		@include tabletanddesktop{
+			padding: 0;
+		}
+	}
 	@include tabletanddesktop{
-		width: 50%;
+		width: 45%;
 		padding-left: 10px;
 		order: 1;
-		padding-bottom: 50px;
 	}
 	@include desktop{
 		padding-left: 30px;
@@ -430,15 +461,10 @@ header a{
 			font-size: 12px;
 		}
 	}
-	h3{
-		font-family: "Open Sans";
-		font-style: normal;
-		font-weight: normal;
-		font-size: 25px;
-		width: 100%;
+	@include smalltablet{
+		width: 51%;
 	}
-	display: flex;
-	flex-wrap: wrap;
+
 	.grid-container{
 		padding-top: 5px;
 		width: 100%;
@@ -446,24 +472,15 @@ header a{
 		grid-template-columns: repeat(5, 20%);
 		grid-template-rows: repeat(5, 20%);
 	}
-	.language{
-		grid-column: 1/2;
-		grid-row: 2/3;
-	}
 	.languages-container{
-		grid-row: 3/6;
+		grid-row: 2/6;
 		grid-column: 1/2;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 	}
-	.proficiency{
-		grid-column: 2/3;
-		grid-row: 1/2;
-		padding-left: 20px;
-	}
 	.proficiency-container{
-		grid-row: 2/3;
+		grid-row: 1/2;
 		grid-column: 2/6;
 		display: flex;
 		justify-content: space-between;
@@ -472,7 +489,7 @@ header a{
 		padding-left: 20px;
 	}
 	.bar-container{
-		grid-row: 3/6;
+		grid-row: 2/6;
 		grid-column: 2/6;
 		display: flex;
 		flex-direction: column;
@@ -486,6 +503,7 @@ header a{
 	.german.inactive{
 		text-align: right;
 		background-color: rgba(127, 171, 239, 0.5);
+		border-radius: 0 15px 15px 0;
 		height: 16px;
 		width: 0;
 	}
@@ -538,14 +556,31 @@ header a{
 		font-weight: normal;
 		font-size: 25px;
 		width: 100%;
+		padding-left: 50px;
+		@include tabletanddesktop{
+			padding-left: 0;
+			padding-bottom: 20px;
+		}
 	}
 	display: flex;
 	flex-wrap: wrap;
+	align-content: flex-start;
 
 	.interests{
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
+		@include smalltablet{
+			flex-wrap: wrap;
+			height: 80%;
+			align-content: space-around;
+			justify-content: space-between;
+			width: 80%;
+			div{
+				margin-right: 30px;
+			}
+		}
+
 		div{
 			background-color: rgba(127, 171, 239, 0.5);
 			padding: 10px;
@@ -561,7 +596,7 @@ header a{
 		}
 	}
 	@include tabletanddesktop{
-		width: 49%;
+		width: 45%;
 		flex-wrap: wrap;
 	}
 }
@@ -587,9 +622,9 @@ header a{
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
-    padding: 50px 0 30px 10px;
+    padding: 50px 0 30px 60px;
 		@include tabletanddesktop{
-			padding: 50px 0 30px 10px;
+			padding: 50px 0 30px 20px;
 		}
     width: 100%;
 		max-width: 1220px;
@@ -685,6 +720,10 @@ header a{
 		border: 1px solid grey;
 		border-radius: 5px;
 		text-align: center;
+		font-family: "Montserrat";
+		font-style: normal;
+		font-weight: 300;
+		text-transform: uppercase;
 		&:hover{
 			border-color: #2bbbce;
 			background-color: #c5f3f9;
@@ -732,12 +771,16 @@ header a{
 		font-style: normal;
 		font-weight: bold;
 		font-size: 30px;
-		padding: 20px 0 20px 20px;
+		padding: 20px 0 20px 60px;
+		box-sizing: border-box;
+		@include tabletanddesktop{
+			padding: 40px 0 20px 20px;
+		}
 	}
 	.flex-container{
-		width: 100%;
+		width: 25%;
+		height: 25%;
 		max-width: 1220px;
-		height: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -749,26 +792,22 @@ header a{
 .card-container{
 	position: absolute;
 	z-index: 2;
-	background-color: rgba(186, 186, 186, 0.6);
 	border-radius: 20px;
-	height: 200px;
-	width: 250px;
+	height: 100px;
+	width: 150px;
 	padding: 20px;
 	display: flex;
-	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+	flex-wrap: wrap;
 	h3{
 		font-size: 20px;
+		text-align: center;
+		width: 100%;
 	}
-	.button{
-		padding: 10px 20px;
-		border: 1px solid grey;
-		border-radius: 5px;
-		&:hover{
-			border-color: #2bbbce;
-			background-color: #c5f3f9;
-		}
+	i{
+		color: #007bb5;
+		font-size: 50px;
 	}
 }
 #particles-js{
@@ -781,4 +820,5 @@ header a{
   background-repeat: no-repeat;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
