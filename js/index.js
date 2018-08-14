@@ -21,28 +21,8 @@ $(document).ready(function(){
 
 //menu-toggle
 $('.hamburger').on('click', function(){
-  if($('.hamburger').hasClass('clicked')){
-      $('.hamburger').removeClass('clicked');
-      $('.header-nav').animate({'height': 0}, '400', 'swing', function() {
-      $('header').removeClass('fullscreen');
-      $('.header-nav').removeClass('mobile');
-    });
-
-  } else{
-    $('.header-nav').animate({'height': '80%'});
-    $('.hamburger').addClass('clicked');
-    $('header').addClass('fullscreen');
-    $('.header-nav').addClass('mobile');
-  }
-});
-$(window).scroll(function(){
-  if($('.hamburger').hasClass('clicked')){
-      $('.hamburger').removeClass('clicked');
-      $('.header-nav').animate({'height': 0}, '400', 'swing', function() {
-      $('header').removeClass('fullscreen');
-      $('.header-nav').removeClass('mobile');
-    });
-  }
+  $('.branding').toggleClass('mobile');
+  $('.mobile').animate({height: 'toggle'});
 });
 //header position & bar chart activation
 

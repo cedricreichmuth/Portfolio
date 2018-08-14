@@ -62,51 +62,15 @@ p {
   font-size: 16px;
   line-height: 1.25; }
 
-@-webkit-keyframes fullscreen {
-  from {
-    height: 0; }
-  to {
-    height: 100vh; } }
-
-@keyframes fullscreen {
-  from {
-    height: 0; }
-  to {
-    height: 100vh; } }
-
-@-webkit-keyframes transition {
-  from {
-    height: 100vh; }
-  to {
-    height: 50px; } }
-
-@keyframes transition {
-  from {
-    height: 100vh; }
-  to {
-    height: 50px; } }
-
-header.fullscreen {
-  width: 100%;
-  height: 100vh;
-  background-color: #a59f9f;
-  -webkit-animation: fullscreen 1s ease-out;
-          animation: fullscreen 1s ease-out;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards; }
-
-header.transition {
-  -webkit-animation: transition 1s ease-out;
-          animation: transition 1s ease-out; }
-
 header {
   position: absolute;
-  z-index: 3; }
+  z-index: 3;
+  width: 100%; }
   @media (min-width: 620px) {
     header {
       background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(163, 163, 163, 0.9)), to(rgba(163, 163, 163, 0)));
       background: linear-gradient(to bottom, rgba(163, 163, 163, 0.9) 50%, rgba(163, 163, 163, 0));
-      height: 50px;
+      height: 100px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -120,7 +84,6 @@ header {
       -webkit-box-align: end;
           -ms-flex-align: end;
               align-items: flex-end;
-      width: 100%;
       z-index: 3; } }
   @media (min-width: 620px) and (max-width: 1023px) {
     header {
@@ -181,11 +144,8 @@ header a {
     .header-nav {
       padding: 0; } }
 
-.header-nav.mobile {
-  height: 90%;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  font-size: 30px; }
+.logo-container {
+  display: none; }
 
 .branding {
   display: -webkit-box;
@@ -194,6 +154,10 @@ header a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
+  .branding.mobile {
+    background-color: grey;
+    width: 100%;
+    height: 0; }
 
 .hamburger {
   padding: 20px 20px 0 20px;
@@ -247,18 +211,23 @@ header a {
       height: 300px;
       width: 300px; } }
 
-.logo-container img {
-  height: 150px; }
+#hero h1 {
+  font-family: "Southern Aire Personal Use Only";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px; }
+  @media (min-width: 620px) {
+    #hero h1 {
+      font-size: 80px; } }
 
 #hero h2 {
-  font-size: 20px;
-  color: #686868;
-  font-family: "Montserrat";
-  font-weight: 300;
-  font-style: normal; }
-
-#hero h3 {
-  font-size: 14px; }
+  font-family: "Walkway";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px; }
+  @media (min-width: 620px) {
+    #hero h2 {
+      font-size: 25px; } }
 
 #aboutme h1 {
   font-family: "Walkway";
