@@ -102,16 +102,17 @@ header {
 	z-index: 3;
 	width: 100%;
 	@include tabletanddesktop{
-		background: linear-gradient(to bottom, rgba(163, 163, 163, 0.9) 50%, rgba(163, 163, 163, 0));
+		background: linear-gradient(to bottom, rgba(163, 163, 163, 0.9) 60%, rgba(163, 163, 163, 0));
 		height: 100px;
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-end;
 		z-index: 3;
+		align-items: center;
 	}
 	@include tablet{
-		align-items: center;
+		justify-content: center;
+	}
+	@include desktop{
+		justify-content: flex-end;
 	}
 }
 header h2 {
@@ -135,7 +136,6 @@ header a{
 	height: 0;
 	overflow: hidden;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
 	font-family: "Montserrat";
@@ -147,7 +147,7 @@ header a{
 	li{
 		padding: 10px 50px 10px 0;
 		text-transform: uppercase;
-		&:nth-child(4){
+		&:nth-child(6){
 			padding-right: 0;
 		}
 	}
@@ -160,19 +160,45 @@ header a{
 		padding: 0;
 	}
 }
-
 .logo-container{
 	display: none;
+	position: absolute;
+	left: 10px;
+	top: 0px;
+	@include tabletanddesktop{
+		display: inline;
+	}
+	img{
+		width: 80px;
+	}
 }
 
 .branding{
 	display: flex;
 	align-items: center;
-	&.mobile{
-		background-color: grey;
-		width: 100%;
-		height: 0;
+}
+.overlay{
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	z-index: 4;
+	background-color: rgba(0,0,0, 0.9);
+	transition: height 0.5s;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	padding: 0;
+	li{
+		padding: 0;
 	}
+}
+.closebtn{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-size: 30px;
+	display: none;
 }
 
 .hamburger{
@@ -275,9 +301,6 @@ header a{
 		height: 90%;
 		box-sizing: border-box;
 		padding-bottom: 50px;
-		h3{
-			padding-bottom: 20px;
-		}
 	}
 }
 
@@ -287,6 +310,9 @@ header a{
 	width: 100%;
 	box-sizing: border-box;
 	padding-left: 10px;
+	p{
+		font-size: 12px;
+	}
 	@include tabletanddesktop{
 		width: 45%;
 	}
@@ -303,31 +329,30 @@ header a{
 	flex-wrap: wrap;
 	align-content: flex-start;
 	padding: 10px;
-	h3{
-		font-family: "Open Sans";
-		font-style: normal;
-		font-weight: normal;
-		font-size: 25px;
-		padding-left: 50px;
-		width: 100%;
-		@include tabletanddesktop{
-			padding: 0;
-		}
-	}
-	p{
-		letter-spacing: 0;
-		line-height: 1.75;
-	}
 	@include tabletanddesktop{
 		width: 45%;
 		order: 1;
 	}
-	@include tablet{
-		p{
-			font-size: 12px;
+	p{
+		letter-spacing: 0;
+		line-height: 1.75;
+		font-size: 12px;
+		@include desktop{
+			font-size: 16px;
 		}
 	}
-
+	h3{
+		font-family: "Open Sans";
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		padding-left: 50px;
+		width: 100%;
+		@include tabletanddesktop{
+			padding: 0;
+			font-size: 25px;
+		}
+	}
 	.grid-container{
 		width: 100%;
 		display: grid;
@@ -425,16 +450,21 @@ header a{
 	p{
 	  letter-spacing: 0;
 	  line-height: 1.75;
+		font-size: 12px;
+		@include desktop{
+			font-size: 16px;
+		}
 	}
 	h3{
 		font-family: "Open Sans";
 		font-style: normal;
 		font-weight: normal;
-		font-size: 25px;
+		font-size: 20px;
 		width: 100%;
 		padding-left: 50px;
 		@include tabletanddesktop{
 			padding: 0;
+			font-size: 25px;
 		}
 	}
 	@include tabletanddesktop{
@@ -444,11 +474,6 @@ header a{
 	}
 	@include desktop{
 		padding-left: 30px;
-	}
-	@include tablet{
-		p{
-			font-size: 12px;
-		}
 	}
 	@include smalltablet{
 		width: 51%;
@@ -543,12 +568,14 @@ header a{
 		font-family: "Open Sans";
 		font-style: normal;
 		font-weight: normal;
-		font-size: 25px;
+		font-size: 20px;
 		width: 100%;
 		padding-left: 50px;
+		padding-bottom: 10px;
 		@include tabletanddesktop{
 			padding-left: 0;
 			padding-bottom: 20px;
+			font-size: 25px;
 		}
 	}
 	display: flex;
@@ -751,6 +778,8 @@ header a{
 
 #contact{
 	height: 100vh;
+	display: flex;
+	justify-content: center;
 	h1{
 		width: 100%;
 		max-width: 1220px;

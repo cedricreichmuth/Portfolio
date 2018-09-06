@@ -68,28 +68,26 @@ header {
   width: 100%; }
   @media (min-width: 620px) {
     header {
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(163, 163, 163, 0.9)), to(rgba(163, 163, 163, 0)));
-      background: linear-gradient(to bottom, rgba(163, 163, 163, 0.9) 50%, rgba(163, 163, 163, 0));
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, rgba(163, 163, 163, 0.9)), to(rgba(163, 163, 163, 0)));
+      background: linear-gradient(to bottom, rgba(163, 163, 163, 0.9) 60%, rgba(163, 163, 163, 0));
       height: 100px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      -webkit-box-align: end;
-          -ms-flex-align: end;
-              align-items: flex-end;
-      z-index: 3; } }
-  @media (min-width: 620px) and (max-width: 1023px) {
-    header {
+      z-index: 3;
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center; } }
+  @media (min-width: 620px) and (max-width: 1023px) {
+    header {
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center; } }
+  @media (min-width: 1024px) {
+    header {
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end; } }
 
 header h2 {
   font-family: "Walkway";
@@ -112,10 +110,6 @@ header a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -130,7 +124,7 @@ header a {
   .header-nav li {
     padding: 10px 50px 10px 0;
     text-transform: uppercase; }
-    .header-nav li:nth-child(4) {
+    .header-nav li:nth-child(6) {
       padding-right: 0; }
   @media (min-width: 620px) {
     .header-nav {
@@ -145,7 +139,15 @@ header a {
       padding: 0; } }
 
 .logo-container {
-  display: none; }
+  display: none;
+  position: absolute;
+  left: 10px;
+  top: 0px; }
+  @media (min-width: 620px) {
+    .logo-container {
+      display: inline; } }
+  .logo-container img {
+    width: 80px; }
 
 .branding {
   display: -webkit-box;
@@ -154,10 +156,37 @@ header a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
-  .branding.mobile {
-    background-color: grey;
-    width: 100%;
-    height: 0; }
+
+.overlay {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.9);
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0; }
+  .overlay li {
+    padding: 0; }
+
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  display: none; }
 
 .hamburger {
   padding: 20px 20px 0 20px;
@@ -278,8 +307,6 @@ header a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     padding-bottom: 50px; }
-    #aboutme .flex-container h3 {
-      padding-bottom: 20px; }
 
 /*skills bar chart*/
 .story {
@@ -287,6 +314,8 @@ header a {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-left: 10px; }
+  .story p {
+    font-size: 12px; }
   @media (min-width: 620px) {
     .story {
       width: 45%; } }
@@ -306,28 +335,30 @@ header a {
   -ms-flex-line-pack: start;
       align-content: flex-start;
   padding: 10px; }
-  .skills h3 {
-    font-family: "Open Sans";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 25px;
-    padding-left: 50px;
-    width: 100%; }
-    @media (min-width: 620px) {
-      .skills h3 {
-        padding: 0; } }
-  .skills p {
-    letter-spacing: 0;
-    line-height: 1.75; }
   @media (min-width: 620px) {
     .skills {
       width: 45%;
       -webkit-box-ordinal-group: 2;
           -ms-flex-order: 1;
               order: 1; } }
-  @media (min-width: 620px) and (max-width: 1023px) {
-    .skills p {
-      font-size: 12px; } }
+  .skills p {
+    letter-spacing: 0;
+    line-height: 1.75;
+    font-size: 12px; }
+    @media (min-width: 1024px) {
+      .skills p {
+        font-size: 16px; } }
+  .skills h3 {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    padding-left: 50px;
+    width: 100%; }
+    @media (min-width: 620px) {
+      .skills h3 {
+        padding: 0;
+        font-size: 25px; } }
   .skills .grid-container {
     width: 100%;
     display: grid;
@@ -450,17 +481,22 @@ header a {
       align-content: flex-start; }
   .languages p {
     letter-spacing: 0;
-    line-height: 1.75; }
+    line-height: 1.75;
+    font-size: 12px; }
+    @media (min-width: 1024px) {
+      .languages p {
+        font-size: 16px; } }
   .languages h3 {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: normal;
-    font-size: 25px;
+    font-size: 20px;
     width: 100%;
     padding-left: 50px; }
     @media (min-width: 620px) {
       .languages h3 {
-        padding: 0; } }
+        padding: 0;
+        font-size: 25px; } }
   @media (min-width: 620px) {
     .languages {
       width: 45%;
@@ -471,9 +507,6 @@ header a {
   @media (min-width: 1024px) {
     .languages {
       padding-left: 30px; } }
-  @media (min-width: 620px) and (max-width: 1023px) {
-    .languages p {
-      font-size: 12px; } }
   @media (min-width: 620px) and (max-width: 700px) {
     .languages {
       width: 51%; } }
@@ -598,13 +631,15 @@ header a {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: normal;
-    font-size: 25px;
+    font-size: 20px;
     width: 100%;
-    padding-left: 50px; }
+    padding-left: 50px;
+    padding-bottom: 10px; }
     @media (min-width: 620px) {
       .personal-interest h3 {
         padding-left: 0;
-        padding-bottom: 20px; } }
+        padding-bottom: 20px;
+        font-size: 25px; } }
   .personal-interest .interests {
     width: 100%;
     display: -webkit-box;
@@ -809,7 +844,13 @@ header a {
           text-align: center; } }
 
 #contact {
-  height: 100vh; }
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
   #contact h1 {
     width: 100%;
     max-width: 1220px;

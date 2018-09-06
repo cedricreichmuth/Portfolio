@@ -21,9 +21,19 @@ $(document).ready(function(){
 
 //menu-toggle
 $('.hamburger').on('click', function(){
-  $('.branding').toggleClass('mobile');
-  $('.mobile').animate({height: 'toggle'});
+  $('.header-nav').toggleClass('overlay');
+  $('.branding').hide();
+  $('.closebtn').show();
+  $('.logo-container').show();
 });
+
+$('.header-nav').children().on('click', function(){
+  $('.header-nav').removeClass('overlay');
+  $('.branding').show();
+  $('.closebtn').hide();
+  $('.logo-container').hide();
+})
+
 //header position & bar chart activation
 
 $(window).scroll(function(){
@@ -31,7 +41,7 @@ $(window).scroll(function(){
   var vw = $(window).width();
   var barActivate = vh * 2 ;
   var barReset = vh * 3 + 50;
-  var mobileBarActivate = vh * 3 + 200;
+  var mobileBarActivate = vh * 3;
   var mobileBarReset = vh * 5;
   if (document.documentElement.scrollTop > vh) {
     $('header').css({'position': 'fixed'});
