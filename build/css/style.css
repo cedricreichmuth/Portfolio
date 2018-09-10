@@ -779,8 +779,8 @@ header a {
     .project:nth-child(odd) .description {
       width: 50%;
       line-height: 1; }
-  .project.aloha {
-    background-image: url("../../images/screenshot-aloha.png");
+  .project.eusirenko {
+    background-image: url("../../images/screenshot-eusirenko.png");
     background-size: contain;
     background-repeat: no-repeat; }
   .project.lakeshorts {
@@ -842,6 +842,27 @@ header a {
         .project:hover .text-container:nth-child(odd) .description, .project:hover .text-container:nth-child(even) .description {
           width: 60%;
           text-align: center; } }
+
+.git-link {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Open Sans";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 20px; }
+  .git-link a:hover {
+    color: #2bbbce; }
+  .git-link i {
+    font-size: 50px;
+    padding-top: 10px; }
+  @media (min-width: 1024px) {
+    .git-link {
+      padding-top: 0; } }
 
 #contact {
   height: 100vh;
